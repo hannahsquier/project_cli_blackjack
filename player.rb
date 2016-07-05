@@ -7,15 +7,20 @@ class Player
 
 
   def move
-    
-    puts "Hit or Stay? ('h' or 's')"
-    move = gets.chomp
-    if move == 'h'
-      @hand.hit
-    elsif move == 's'
-      # stay
+ 
+    until valid_move?(move)
+      puts "Hit or Stay? ('h' or 's')"
+      move = gets.chomp
+      "That is not a valid move. ('h' or 's')"
     end
+      
+    @hand.hit if move == 'h'
+    
   end
 
+  def valid_move?(move)
+    return true if move == 'h' || move == 's'
+    false
+  end
 
 end

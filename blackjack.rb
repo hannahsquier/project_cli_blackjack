@@ -29,7 +29,6 @@ class Blackjack
 
   def play
     until win?
-
       @player.move
       @dealer.move
     end
